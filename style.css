@@ -1,0 +1,41 @@
+#topnav {
+   border-bottom: 2px solid rgb(60, 60, 60);
+}
+
+.topnav-link:hover {
+   background-color: rgb(50, 50, 50);
+}
+
+body[data-search="true"] #search-bar {
+   display: block;
+}
+
+body[data-search="false"] #search-bar {
+   display: none;
+}
+
+body[data-search="true"] #magnifying-glass {
+   display: none;
+}
+
+body[data-search="false"] #magnifying-glass {
+   display: inline-flex;
+}
+
+body[data-search="true"] #x {
+   display: inline-flex;
+}
+
+body[data-search="false"] #x {
+   display: none;
+}
+
+#search-bar {
+   height: 50px;
+}
+
+#search-bar input {
+   height: 100%;
+   width: 100%;
+   font-size: 20px;
+}
