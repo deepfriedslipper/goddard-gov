@@ -37,5 +37,5 @@ body[data-search="false"] #x {
 #search-bar input {
    height: 100%;
    width: 100%;
-   font-size: 20px;
+   font-size: 1em;
 }
