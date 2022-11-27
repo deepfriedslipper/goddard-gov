@@ -16,35 +16,34 @@
          <div class="container d-flex flex-wrap">
             <ul class="nav me-auto">
                <li class="nav-item d-none d-md-block d-sm-none">
-                  <a href="#" class="nav-link link-light px-2 
-                  text-decoration-underline topnav-link">
+                  <button href="#" class="btn nav-link link-light px-2 topnav-link">
                      Home
-                  </a>
+                  </button>
                </li>
                <li class="nav-item d-none d-md-block d-sm-none">
-                  <a href="#" class="nav-link link-light px-2 topnav-link">
+                  <button href="#" class="btn nav-link link-light px-2 topnav-link">
                      Laws
-                  </a>
+                  </button>
                </li>
                <li class="nav-item d-none d-md-block d-sm-none">
-                  <a href="#" class="nav-link link-light px-2 topnav-link">
+                  <button href="#" class="btn nav-link link-light px-2 topnav-link">
                      Employment
-                  </a>
+                  </button>
                </li>
                <li class="nav-item d-none d-md-block d-sm-none">
-                  <a href="#" class="nav-link link-light px-2 topnav-link">
+                  <button href="#" class="btn nav-link link-light px-2 topnav-link">
                      Government
-                  </a>
+                  </button>
                </li>
                <li class="nav-item d-none d-md-block d-sm-none">
-                  <a href="#" class="nav-link link-light px-2 topnav-link">
+                  <button href="#" class="btn nav-link link-light px-2 topnav-link">
                      News
-                  </a>
+                  </button>
                </li>
                <li class="nav-item d-none d-md-block d-sm-none">
-                  <a href="#" class="nav-link link-light px-2 topnav-link">
+                  <button href="#" class="btn nav-link link-light px-2 topnav-link">
                      About
-                  </a>
+                  </button>
                </li>
                <li class="d-md-none d-sm-block">
                   <a href="/" class="d-flex align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
@@ -67,7 +66,7 @@
                      </svg>
                   </button>
 
-                  <button type="button" class="btn btn-outline-light me-2 d-none d-md-inline-block">
+                  <button onclick="navigate('login')" type="button" class="btn btn-outline-light me-2 d-none d-md-inline-block">
                      Login
                   </button>
 
@@ -87,40 +86,39 @@
          </div>
       </nav>
 
-      <form id="search-bar" class="container">
+      <form id="search-bar">
          <input placeholder="Search...">
       </form>
 
-      <header class="bg-black d-none d-md-block d-sm-none pt-sm-4 pb-lg-4 pb-sm-2">
-         <div class="container d-flex justify-content-center align-items-center">
-            <a href="/" class=" d-none d-md-flex d-sm-none align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-               <img class="bi me-2" width="85" height="40" 
-               src="img/flag.png">
-               <span class="fs-4 text-light">
-                  Communist Republic of Goddard
-               </span>
-            </a>
-            <form id="home-searchbar" class="col-12 col-lg-auto d-none
-            d-lg-block d-sm-none" 
-            role="search" wtx-context="7FFEC902-3FEF-43F9-80C0-15E4E6570743">
-               <input type="search" class="form-control" 
-               placeholder="Search..." aria-label="Search" 
-               wtx-context="C1BA34C3-C3CE-4DDE-896F-846696368E18">
-            </form>
-         </div>
-      </header>
-
-      <main class="bg-dark d-flex flex-column">
-         <section class="py-3 container d-flex flex-wrap">
-            <h1 class="text-white">Home</h1>
-         </section>
-         <section class="container d-flex flex-wrap">
+      <div class="wrapper bg-dark p-0">
+         <header class="bg-black d-none d-md-block d-sm-none pt-sm-4 pb-lg-4 pb-sm-2">
+            <div class="container d-flex justify-content-center align-items-center">
+               <a href="/" class=" d-none d-md-flex d-sm-none align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                  <img class="bi me-2" width="85" height="40" 
+                  src="img/flag.png">
+                  <span class="fs-4 text-light">
+                     Communist Republic of Goddard
+                  </span>
+               </a>
+               <form id="home-searchbar" class="col-12 col-lg-auto d-none
+               d-lg-block d-sm-none" 
+               role="search" wtx-context="7FFEC902-3FEF-43F9-80C0-15E4E6570743">
+                  <input type="search" class="form-control" 
+                  placeholder="Search..." aria-label="Search" 
+                  wtx-context="C1BA34C3-C3CE-4DDE-896F-846696368E18">
+               </form>
+            </div>
+         </header>
+   
+         <main class="container p-0">
+            <h1 class="text-white py-3">Home</h1>
             <p class="text-white">Welcome to the Official Website for the 
                Communist Republic of Goddard.<br>All information is classified
-            until you <a class="link-warning topnav-link" href="/">sign in</a>
-            to prove you are a citizen.</p>
-         </section>
-      </main>
+               until you <a class="link-warning" href="login">sign in</a>
+               to prove you are a citizen.
+            </p>
+         </main>
+      </div>
       
       <script src="script.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
