@@ -3,7 +3,9 @@ const toggleSearch = () => {
 }
 
 const navigate = (location) => {
-   window.location.href = location;
+   if(location == "login" || location == "../" || document.body.dataset.signin == "true") {
+      window.location.href = location;
+   }
 }
 
 const loginForm = document.getElementById("signin-form");
@@ -20,10 +22,13 @@ loginButton.addEventListener("click", (e) => {
    const username = loginForm.username.value;
    const password = loginForm.password.value;
 
-   if (username === "user" && password === "web_dev") {
+   if (username === "tombo" && password === "password") {
        alert("You have successfully logged in.");
        location.reload();
    } else {
-       loginErrorMsg.style.opacity = 1;
+       loginErrorMsg.style.display = 'block';
+       setTimeout(() => {
+         loginErrorMsg.style.display = 'none';
+       }, 3000);
    }
 })
