@@ -109,3 +109,7 @@ body[data-search="false"] #x {
 #error {
    display: none;
 }
+
+#search-toggle:hover {
+   background-color: rgb(30, 30, 30);
+}
