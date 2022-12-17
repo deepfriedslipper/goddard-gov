@@ -147,23 +147,23 @@ body[data-search="false"] #x {
 }
 
 #laws.scroll-card {
-   background-image: url(/img/gavel.jpg);
+   background-image: url(/goddard-gov/img/gavel.jpg);
 }
 
 #employment.scroll-card {
-   background-image: url(/img/agree.jpg);
+   background-image: url(/goddard-gov/img/agree.jpg);
 }
 
 #government.scroll-card {
-   background-image: url(/img/government.jpg);
+   background-image: url(/goddard-gov/img/government.jpg);
 }
 
 #news.scroll-card {
-   background-image: url(/img/news.jpg);
+   background-image: url(/goddard-gov/img/news.jpg);
 }
 
 #about.scroll-card {
-   background-image: url(/img/flag.png);
+   background-image: url(/goddard-gov/img/flag.png);
    background-position: 50% -20px;
 }
 
