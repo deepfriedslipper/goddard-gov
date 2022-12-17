@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Communist Republic of Goddard - Official Website</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+  <script defer src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+  <script defer src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body data-signedin="false" data-search="false" data-tab="1">
+  <nav class="py-2 bg-black" id="topnav">
+    <div class="container d-flex flex-wrap justify-content-between">
+      <ul class="nav gap-1">
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button onclick="navigate('/')" class="btn nav-link link-light px-2 topnav-link">Home</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button href="#" class="btn nav-link link-light px-2 topnav-link">Laws</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button href="#" class="btn nav-link link-light px-2 topnav-link">Employment</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button href="#" class="btn nav-link link-light px-2 topnav-link">Government</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button href="#" class="btn nav-link link-light px-2 topnav-link">News</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button href="#" class="btn nav-link link-light px-2 topnav-link">About</button>
+        </li>
+        <li class="d-md-none d-sm-block">
+          <a href="/" class="d-flex align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
+            <img class="bi me-2" width="93" height="40" src="/img/flag.png">
+            <span class="fs-4 text-light">Goddard</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav">
+        <nav class="text-end">
+          <button type="button" class="btn d-inline-flex d-lg-none d-sm-inline-flex" onclick="toggleSearch()"
+            id="search-toggle">
+            <svg id="magnifying-glass" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
+              class="bi bi-search" viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+            <svg id="x" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-x-lg"
+              viewBox="0 0 16 16">
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+            </svg>
+          </button>
+
+          <button class="btn d-inline-flex d-sm-inline-flex d-md-none p-0 
+                  justify-content-center align-items-center" style="height: 40px;width:40px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-list"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            </svg>
+          </button>
+        </nav>
+      </ul>
+    </div>
+  </nav>
+
+  <form id="search-bar">
+    <input placeholder="Search...">
+  </form>
+
+  <div class="wrapper bg-dark p-0">
+    <header class="bg-black d-none d-md-flex d-sm-none pt-4 pb-2 pb-lg-3" id="header">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center">
+        <div>
+          <a href="/"
+            class="d-none d-md-flex d-sm-none align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+            <img class="bi me-2" width="85" height="40" src="/img/flag.png">
+            <span class="fs-4 text-light">Robo-Communist Republic of Goddard</span>
+          </a>
+        </div>
+        <div class="text-end">
+          <div class="container d-flex flex-row justify-content-center">
+            <form id="home-searchbar" class="col-12 col-lg-auto d-none d-lg-block d-sm-none px-3" role="search"
+              wtx-context="7FFEC902-3FEF-43F9-80C0-15E4E6570743">
+              <input type="search" class="form-control" placeholder="Search..." aria-label="Search"
+                wtx-context="C1BA34C3-C3CE-4DDE-896F-846696368E18" id="search">
+            </form>
+
+            <button onclick="navigate('/login')" type="button"
+              class="btn btn-outline-light me-2 d-none d-md-inline-block mt-0">Login</button>
+
+            <button onclick="navigate('/sign-up')" type="button" class="btn btn-warning d-none d-md-inline-block">Sign
+              up</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container px-sm-0 px-3">
+      <h1 class="text-white py-3">Government</h1>
+      <p class="text-white">All information
+        is classified until you <a class="link-warning" href="/login">sign in</a> to prove you are a citizen.</p>
+    </main>
+
+    <main id="signed-in" class="container px-sm-0 px-3">
+      <h1 class="text-white py-3">Government</h1>
+      <div class="row">
+        <div class="col-3 p2">
+          <button class="tab w-100" id="tab1-btn" onclick="switchTab('tab1')">Ministers</button>
+        </div>
+        <div class="col-3 p2">
+          <button class="tab w-100" id="tab2-btn" onclick="switchTab('tab2')">Parliament</button>
+        </div>
+        <div class="col-3 p2">
+          <button class="tab w-100" id="tab3-btn" onclick="switchTab('tab3')">Departments</button>
+        </div>
+        <div class="col-3 p2">
+          <button class="tab w-100" id="tab4-btn" onclick="switchTab('tab4')">People</button>
+        </div>
+        <div class="select-bar"></div>
+      </div>
+      <div class="tab-content" id="tab1">
+        <h3 class="text-white py-3">Ministers</h3>
+        <p id="intro" class="text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam ut inventore
+          omnis tenetur quisquam eaque magnam animi optio, similique praesentium? Qui assumenda suscipit consectetur
+          facere illo possimus, cum quos impedit laborum consequatur quas sit quo temporibus tenetur repellat nisi
+          voluptatum consequuntur doloribus mollitia! Beatae adipisci laborum eos. Nesciunt eum neque illum quibusdam
+          quis dolorum assumenda velit dicta facere optio, esse eius numquam, accusamus ducimus ratione. Explicabo,
+          recusandae accusantium unde impedit saepe quam alias similique consequatur necessitatibus nemo soluta
+          molestias aut ipsum velit totam provident deleniti ducimus architecto, minima incidunt nostrum aperiam cum
+          est. Voluptates culpa perferendis provident ullam velit consequuntur!</p>
+        <div class="container row g-0">
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img img-border" id="tom"></div>
+              <h3 class="name text-white">Thomas Michael Goddard</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-300">
+                Lord God King Emperor Overlord
+              </p>
+            </div>
+            <div class="person-card-bg bg-black"></div>
+          </div>
+
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="chris"></div>
+              <h3 class="name text-white">Christopher Alger</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles">
+                Deputy Lord God King Emperor Overlord, Chancellor of the Exchequer, Secretary of State for Environment,
+                Food and Rural Affairs, Secretary of State for Transport, Deputy Secretary of State for
+                National Defence and Military
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="jasper"></div>
+              <h3 class="name text-white">Jasper William Ronald Stocks</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles">
+                The Senate, Secretary of State for International Trade, Secretary of State for Business and Economy,
+                Secretary of State for Technological Advancement, Digital Culture and Media, Secretary of State for
+                National Defence and Military
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="rafi"></div>
+              <h3 class="name text-white">Rafael Martin Amelines</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-50">
+                Leader of the House of Commons, Secretary of State for Health and Social Care, Secretary of State for
+                Education, Secretary of State for Culture and Diversity
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="harley"></div>
+              <h3 class="name text-white">Harley Goddard</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-300">
+                Leader of the House of Lords
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab2">
+        <h3 class="text-white py-3">Parliament</h3>
+        <p id="intro" class="text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam ut inventore
+          omnis tenetur quisquam eaque magnam animi optio, similique praesentium? Qui assumenda suscipit consectetur
+          facere illo possimus, cum quos impedit laborum consequatur quas sit quo temporibus tenetur repellat nisi
+          voluptatum consequuntur doloribus mollitia! Beatae adipisci laborum eos. Nesciunt eum neque illum quibusdam
+          quis dolorum assumenda velit dicta facere optio, esse eius numquam, accusamus ducimus ratione. Explicabo,
+          recusandae accusantium unde impedit saepe quam alias similique consequatur necessitatibus nemo soluta
+          molestias aut ipsum velit totam provident deleniti ducimus architecto, minima incidunt nostrum aperiam cum
+          est. Voluptates culpa perferendis provident ullam velit consequuntur!</p>
+        <div class="container row g-0">
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img img-border" id="tom"></div>
+              <h3 class="name text-white">Thomas Michael Goddard</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-300">
+                Lord God King Emperor Overlord
+              </p>
+            </div>
+            <div class="person-card-bg bg-black"></div>
+          </div>
+
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="chris"></div>
+              <h3 class="name text-white">Christopher Alger</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles">
+                Deputy Lord God King Emperor Overlord, Chancellor of the Exchequer, Secretary of State for Environment,
+                Food and Rural Affairs, Secretary of State for Transport, Deputy Secretary of State for
+                National Defence and Military
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="jasper"></div>
+              <h3 class="name text-white">Jasper William Ronald Stocks</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles">
+                The Senate, Secretary of State for International Trade, Secretary of State for Business and Economy,
+                Secretary of State for Technological Advancement, Digital Culture and Media, Secretary of State for
+                National Defence and Military
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="rafi"></div>
+              <h3 class="name text-white">Rafael Martin Amelines</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-50">
+                Leader of the House of Commons, Secretary of State for Health and Social Care, Secretary of State for
+                Education, Secretary of State for Culture and Diversity
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="harley"></div>
+              <h3 class="name text-white">Harley Goddard</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-300">
+                Leader of the House of Lords
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab3">
+        <h3 class="text-white py-3">Departments</h3>
+        <p id="intro" class="text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam ut inventore
+          omnis tenetur quisquam eaque magnam animi optio, similique praesentium? Qui assumenda suscipit consectetur
+          facere illo possimus, cum quos impedit laborum consequatur quas sit quo temporibus tenetur repellat nisi
+          voluptatum consequuntur doloribus mollitia! Beatae adipisci laborum eos. Nesciunt eum neque illum quibusdam
+          quis dolorum assumenda velit dicta facere optio, esse eius numquam, accusamus ducimus ratione. Explicabo,
+          recusandae accusantium unde impedit saepe quam alias similique consequatur necessitatibus nemo soluta
+          molestias aut ipsum velit totam provident deleniti ducimus architecto, minima incidunt nostrum aperiam cum
+          est. Voluptates culpa perferendis provident ullam velit consequuntur!</p>
+        <div class="container row g-0">
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img img-border" id="tom"></div>
+              <h3 class="name text-white">Thomas Michael Goddard</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-300">
+                Lord God King Emperor Overlord
+              </p>
+            </div>
+            <div class="person-card-bg bg-black"></div>
+          </div>
+
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="chris"></div>
+              <h3 class="name text-white">Christopher Alger</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles">
+                Deputy Lord God King Emperor Overlord, Chancellor of the Exchequer, Secretary of State for Environment,
+                Food and Rural Affairs, Secretary of State for Transport, Deputy Secretary of State for
+                National Defence and Military
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="jasper"></div>
+              <h3 class="name text-white">Jasper William Ronald Stocks</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles">
+                The Senate, Secretary of State for International Trade, Secretary of State for Business and Economy,
+                Secretary of State for Technological Advancement, Digital Culture and Media, Secretary of State for
+                National Defence and Military
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="rafi"></div>
+              <h3 class="name text-white">Rafael Martin Amelines</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-50">
+                Leader of the House of Commons, Secretary of State for Health and Social Care, Secretary of State for
+                Education, Secretary of State for Culture and Diversity
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="harley"></div>
+              <h3 class="name text-white">Harley Goddard</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-300">
+                Leader of the House of Lords
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="tab4">
+        <h3 class="text-white py-3">People</h3>
+        <p id="intro" class="text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam ut inventore
+          omnis tenetur quisquam eaque magnam animi optio, similique praesentium? Qui assumenda suscipit consectetur
+          facere illo possimus, cum quos impedit laborum consequatur quas sit quo temporibus tenetur repellat nisi
+          voluptatum consequuntur doloribus mollitia! Beatae adipisci laborum eos. Nesciunt eum neque illum quibusdam
+          quis dolorum assumenda velit dicta facere optio, esse eius numquam, accusamus ducimus ratione. Explicabo,
+          recusandae accusantium unde impedit saepe quam alias similique consequatur necessitatibus nemo soluta
+          molestias aut ipsum velit totam provident deleniti ducimus architecto, minima incidunt nostrum aperiam cum
+          est. Voluptates culpa perferendis provident ullam velit consequuntur!</p>
+        <div class="container row g-0">
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img img-border" id="tom"></div>
+              <h3 class="name text-white">Thomas Michael Goddard</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-300">
+                Lord God King Emperor Overlord
+              </p>
+            </div>
+            <div class="person-card-bg bg-black"></div>
+          </div>
+
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="chris"></div>
+              <h3 class="name text-white">Christopher Alger</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles">
+                Deputy Lord God King Emperor Overlord, Chancellor of the Exchequer, Secretary of State for Environment,
+                Food and Rural Affairs, Secretary of State for Transport, Deputy Secretary of State for
+                National Defence and Military
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="jasper"></div>
+              <h3 class="name text-white">Jasper William Ronald Stocks</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles">
+                The Senate, Secretary of State for International Trade, Secretary of State for Business and Economy,
+                Secretary of State for Technological Advancement, Digital Culture and Media, Secretary of State for
+                National Defence and Military
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="rafi"></div>
+              <h3 class="name text-white">Rafael Martin Amelines</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-50">
+                Leader of the House of Commons, Secretary of State for Health and Social Care, Secretary of State for
+                Education, Secretary of State for Culture and Diversity
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+
+          <div class="person-card col-4 m-0">
+            <div class="person-card-front">
+              <div class="bkg-img" id="harley"></div>
+              <h3 class="name text-white">Harley Goddard</h3>
+            </div>
+            <div class="person-card-back">
+              <p class="text-white titles translate-300">
+                Leader of the House of Lords
+              </p>
+            </div>
+            <div class="person-card-bg"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
