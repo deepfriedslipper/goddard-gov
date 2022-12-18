@@ -268,35 +268,35 @@ body[data-search="false"] #x {
 }
 
 .bkg-img#chris {
-   background: url('/img/chris.jpeg');
+   background: url('/goddard-gov/img/chris.jpeg');
    background-position-x: 35%;
    height: 500px;
    background-size: cover;
 }
 
 .bkg-img#tom {
-   background: url('/img/tom.jpg');
+   background: url('/goddard-gov/img/tom.jpg');
    background-position-x: 50%;
    height: 500px;
    background-size: cover;
 }
 
 .bkg-img#jasper {
-   background: url('/img/jasper.JPG');
+   background: url('/goddard-gov/img/jasper.JPG');
    background-position-x: 35%;
    height: 500px;
    background-size: cover;
 }
 
 .bkg-img#rafi {
-   background: url('/img/rafi3.png');
+   background: url('/goddard-gov/img/rafi3.png');
    background-position-x: 50%;
    height: 500px;
    background-size: cover;
 }
 
 .bkg-img#harley {
-   background: url('/img/harley.png');
+   background: url('/goddard-gov/img/harley.png');
    background-position-x: 50%;
    height: 500px;
    background-size: cover;
@@ -312,7 +312,7 @@ body[data-search="false"] #x {
 }
 
 .tab {
-   background: none;
+   background-color: #1e2125;
    padding: 1em;
    color: gray;
    border: none;
@@ -332,6 +332,12 @@ body[data-search="false"] #x {
    height: 3px;
    background-color: white;
    transition: transform 300ms ease;
+}
+
+#tab2,
+#tab3,
+#tab4 {
+   display: none;
 }
 
 body[data-tab="1"] .select-bar {
