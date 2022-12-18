@@ -42,7 +42,7 @@ function switchTab(tab) {
    x = document.getElementsByClassName("tab");
    for (i = 0; i < x.length; i++) {
       x[i].style.color = "gray";
-      x[i].style.background = "none";
+      x[i].style.backgroundColor = "#1e2125";
    }
    document.getElementById(tab + "-btn").style.color = "white";
    document.getElementById(tab + "-btn").style.backgroundColor = "#343a40";
