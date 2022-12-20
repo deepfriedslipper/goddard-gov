@@ -1,31 +1,197 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
-  <title>Laws of the Republic of Goddard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Robo-Communist Republic of Goddard - Official Website</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  <link rel="stylesheet" type="text/css" href="/goddard-gov/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+  <script defer src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+  <script defer src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js"></script>
+  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
-<body>
-  <h1>Laws of the Republic of Goddard</h1>
-  <p>Welcome to the Republic of Goddard, where the rule of law is held in the highest regard. Below, you will find information about all of our laws and regulations.</p>
 
-  <h2>Constitution</h2>
-  <p>The Constitution of the Republic of Goddard is the supreme law of the land, and all other laws and regulations must be in accordance with it. It establishes the framework for the government and sets out the fundamental rights and duties of citizens.</p>
+<body data-signedin="false" data-search="false">
+  <nav class="py-2 bg-black" id="topnav">
+    <div class="container d-flex flex-wrap justify-content-between">
+      <ul class="nav gap-1">
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button onclick="navigate('/goddard-gov')" class="btn nav-link link-light px-2 topnav-link">Home</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button href="#" class="btn nav-link link-light px-2 topnav-link">Laws</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button href="#" class="btn nav-link link-light px-2 topnav-link">Employment</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button onclick="navigate('/goddard-gov/government')"
+            class="btn nav-link link-light px-2 topnav-link">Government</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button href="#" class="btn nav-link link-light px-2 topnav-link">News</button>
+        </li>
+        <li class="nav-item d-none d-md-block d-sm-none">
+          <button href="#" class="btn nav-link link-light px-2 topnav-link">About</button>
+        </li>
+        <li class="d-md-none d-sm-block">
+          <a href="/goddard-gov/" class="d-flex align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
+            <img class="bi me-2" width="93" height="40" src="/goddard-gov/img/flag.png">
+            <span class="fs-4 text-light">Goddard</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="nav">
+        <nav class="text-end">
+          <button type="button" class="btn d-inline-flex d-lg-none d-sm-inline-flex" onclick="toggleSearch()"
+            id="search-toggle">
+            <svg id="magnifying-glass" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white"
+              class="bi bi-search" viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+            <svg id="x" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" class="bi bi-x-lg"
+              viewBox="0 0 16 16">
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+            </svg>
+          </button>
 
-  <h2>Criminal Law</h2>
-  <p>The Criminal Code of the Republic of Goddard outlines the offenses that are punishable by law, as well as the penalties for those offenses. It also sets out the procedures for criminal investigations and trials.</p>
+          <button class="btn d-inline-flex d-sm-inline-flex d-md-none p-0 
+                  justify-content-center align-items-center" style="height: 40px;width:40px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-list"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+            </svg>
+          </button>
+        </nav>
+      </ul>
+    </div>
+  </nav>
 
-  <h2>Civil Law</h2>
-  <p>The Civil Code of the Republic of Goddard regulates relations between private individuals and organizations. It covers a wide range of topics, including contracts, property, and torts.</p>
+  <form id="search-bar">
+    <input placeholder="Search...">
+  </form>
 
-  <h2>Commercial Law</h2>
-  <p>The Commercial Code of the Republic of Goddard governs business and trade within the Republic. It includes provisions on topics such as the formation of companies, commercial contracts, and bankruptcy.</p>
+  <div class="wrapper bg-dark p-0">
+    <header class="bg-black d-none d-md-flex d-sm-none pt-4 pb-2 pb-lg-3" id="header">
+      <div class="container d-flex flex-wrap justify-content-between align-items-center">
+        <div>
+          <a href="/goddard-gov/"
+            class="d-none d-md-flex d-sm-none align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+            <img class="bi me-2" width="85" height="40" src="/goddard-gov/img/flag.png">
+            <span class="fs-4 text-light">Robo-Communist Republic of Goddard</span>
+          </a>
+        </div>
+        <div class="text-end">
+          <div class="container d-flex flex-row justify-content-center">
+            <form id="home-searchbar" class="col-12 col-lg-auto d-none d-lg-block d-sm-none px-3" role="search"
+              wtx-context="7FFEC902-3FEF-43F9-80C0-15E4E6570743">
+              <input type="search" class="form-control" placeholder="Search..." aria-label="Search"
+                wtx-context="C1BA34C3-C3CE-4DDE-896F-846696368E18" id="search">
+            </form>
 
-  <h2>Labor Law</h2>
-  <p>The Labor Code of the Republic of Goddard regulates the rights and duties of employers and employees in the workplace. It covers topics such as working hours, wages, and safety standards.</p>
+            <button onclick="navigate('/goddard-gov/login')" type="button"
+              class="btn btn-outline-light me-2 d-none d-md-inline-block mt-0">Login</button>
 
-  <h2>Environmental Law</h2>
-  <p>The Environmental Protection Act of the Republic of Goddard sets out the rules and regulations for protecting the environment within the Republic. It covers topics such as pollution control, waste management, and conservation of natural resources.</p>
+            <button onclick="navigate('/goddard-gov/sign-up')" type="button"
+              class="btn btn-warning d-none d-md-inline-block">Sign up</button>
+          </div>
+        </div>
+      </div>
+    </header>
 
-  <h2>Tax Law</h2>
-  <p>The Tax Code of the Republic of Goddard establishes the rules for the taxation of individuals and businesses within the Republic. It covers topics such as income tax, sales tax, and property tax.</p>
+    <main id="not-signed-in" class="container px-sm-0 px-3">
+      <h1 class="text-white py-3">Laws of the Republic of Goddard</h1>
+      <p class="text-white">All information is classified until you <a class="link-warning"
+          href="/goddard-gov/login">sign in</a> to prove you are a citizen.</p>
+    </main>
+
+    <main id="signed-in" class="container px-sm-0 px-3 text-white">
+      <h1 class="py-3">Laws of the Republic of Goddard</h1>
+      <p>Welcome to the Republic of Goddard, where the rule of law is held in the highest regard. Below, you will find
+        information about all of our laws and regulations.</p>
+      <div class="row">
+        <div id="constitution" class="col-6">
+          <h2>Constitution</h2>
+          <p>The Constitution of the Republic of Goddard is the supreme law of the land, and all other laws and
+            regulations
+            must be in accordance with it. It establishes the framework for the government and sets out the fundamental
+            rights and duties of citizens.</p>
+          <button onclick="navigate('/goddard-gov/laws/constitution')" class="btn btn-warning mb-5">Learn more
+            →</button>
+        </div>
+
+        <div id="criminal" class="col-6">
+          <h2>Criminal Law</h2>
+          <p>The Criminal Code of the Republic of Goddard outlines the offenses that are punishable by law, as well as
+            the
+            penalties for those offenses. It also sets out the procedures for criminal investigations and trials.</p>
+          <button onclick="navigate('/goddard-gov/laws/criminal')" class="btn btn-warning mb-5">Learn more →</button>
+        </div>
+
+        <div id="civil" class="col-6">
+          <h2>Civil Law</h2>
+          <p>The Civil Code of the Republic of Goddard regulates relations between private individuals and
+            organizations.
+            It
+            covers a wide range of topics, including contracts, property, and torts.</p>
+          <button onclick="navigate('/goddard-gov/laws/civil')" class="btn btn-warning mb-5">Learn more →</button>
+        </div>
+
+        <div id="commercial" class="col-6">
+          <h2>Commercial Law</h2>
+          <p>The Commercial Code of the Republic of Goddard governs business and trade within the Republic. It includes
+            provisions on topics such as the formation of companies, commercial contracts, and bankruptcy.</p>
+          <button onclick="navigate('/goddard-gov/laws/commercial')" class="btn btn-warning mb-5">Learn more →</button>
+        </div>
+
+        <div id="labour" class="col-6">
+          <h2>Labour Law</h2>
+          <p>The Labour Code of the Republic of Goddard regulates the rights and duties of employers and employees in
+            the workplace. It covers topics such as working hours, wages, and safety standards.</p>
+          <button onclick="navigate('/goddard-gov/laws/labour')" class="btn btn-warning mb-5">Learn more →</button>
+        </div>
+
+        <div id="environmental" class="col-6">
+          <h2>Environmental Law</h2>
+          <p>The Environmental Protection Act of the Republic of Goddard sets out the rules and regulations for
+            protecting
+            the environment within the Republic. It covers topics such as pollution control, waste management, and
+            conservation of natural resources.</p>
+          <button onclick="navigate('/goddard-gov/laws/environmental')" class="btn btn-warning mb-5">Learn more
+            →</button>
+        </div>
+
+        <div id="tax" class="col-6">
+          <h2>Tax Law</h2>
+          <p>The Tax Code of the Republic of Goddard establishes the rules for the taxation of individuals and
+            businesses within the Republic. It covers topics such as income tax, sales tax, and property tax.</p>
+          <button onclick="navigate('/goddard-gov/laws/tax')" class="btn btn-warning mb-5">Learn more →</button>
+        </div>
+
+        <div id="tax" class="col-6">
+          <h2>Other laws</h2>
+          <p>This section contains miscellaneous laws which do not fit any of the above categories.</p>
+          <button onclick="navigate('/goddard-gov/laws/other')" class="btn btn-warning mb-5">Learn more →</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/goddard-gov/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
 </body>
-</html>
