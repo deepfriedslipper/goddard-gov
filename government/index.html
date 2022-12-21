@@ -383,7 +383,7 @@
         </div>
       </div>
       <div class="tab-content" id="tab4">
-        <h3 class="text-white py-3">People</h3>
+        <h3 class="text-white py-3">All People</h3>
         <p id="intro" class="text-white">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aperiam ut
           inventore
           omnis tenetur quisquam eaque magnam animi optio, similique praesentium? Qui assumenda suscipit consectetur
@@ -396,13 +396,13 @@
         <div class="sort-menu">
           <button class="menu-btn">Sort</button>
           <div class="dropdown-content">
-            <a href="#" onclick="sort('default')">Default</a>
-            <a href="#" onclick="sort('a-z')">A-Z</a>
-            <a href="#" onclick="sort('z-a')">Z-A</a>
+            <button onclick="sort_importance()">Default (Hierarchy)</button>
+            <button onclick="sort_alphabetical()">A-Z</button>
+            <button onclick="sort_back_alphabetical()">Z-A</button>
           </div>
         </div>
-        <div class="container row g-0">
-          <div class="person-card col-4 m-0">
+        <div class="container row g-0" id="people-container">
+          <div class="person-card col-4 m-0" id="thomas-michael-goddard" data-importance="1">
             <div class="person-card-front">
               <div class="bkg-img img-border" id="tom"></div>
               <h3 class="name text-white">Thomas Michael Goddard</h3>
@@ -415,7 +415,7 @@
             <div class="person-card-bg bg-black"></div>
           </div>
 
-          <div class="person-card col-4 m-0">
+          <div class="person-card col-4 m-0" id="christopher-alger" data-importance="2">
             <div class="person-card-front">
               <div class="bkg-img" id="chris"></div>
               <h3 class="name text-white">Christopher Alger</h3>
@@ -431,7 +431,7 @@
             <div class="person-card-bg"></div>
           </div>
 
-          <div class="person-card col-4 m-0">
+          <div class="person-card col-4 m-0" id="jasper-william-ronald-stocks" data-importance="3">
             <div class="person-card-front">
               <div class="bkg-img" id="jasper"></div>
               <h3 class="name text-white">Jasper William Ronald Stocks</h3>
@@ -446,10 +446,10 @@
             <div class="person-card-bg"></div>
           </div>
 
-          <div class="person-card col-4 m-0">
+          <div class="person-card col-4 m-0" id="rafael-martin-amelines" data-importance="4">
             <div class="person-card-front">
               <div class="bkg-img" id="rafi"></div>
-              <h3 class="name text-white">Rafael Martin Amelines</h3>
+              <h3 class="name text-white">Rafael Martín Amelines</h3>
             </div>
             <div class="person-card-back">
               <p class="text-white titles translate-50">
@@ -460,7 +460,7 @@
             <div class="person-card-bg"></div>
           </div>
 
-          <div class="person-card col-4 m-0">
+          <div class="person-card col-4 m-0" id="harley-goddard" data-importance="5">
             <div class="person-card-front">
               <div class="bkg-img" id="harley"></div>
               <h3 class="name text-white">Harley Goddard</h3>
