@@ -4,7 +4,7 @@
 <head>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <title>Communist Republic of Goddard - Official Website</title>
+   <title>Robo-Communist Republic of Goddard - Official Website</title>
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
    <link rel="stylesheet" type="text/css" href="/goddard-gov/style.css">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -25,7 +25,8 @@
                <button onclick="navigate('/goddard-gov')" class="btn nav-link link-light px-2 topnav-link">Home</button>
             </li>
             <li class="nav-item d-none d-md-block d-sm-none">
-               <button href="#" class="btn nav-link link-light px-2 topnav-link">Laws</button>
+               <button onclick="navigate('/goddard-gov/laws')"
+                  class="btn nav-link link-light px-2 topnav-link">Laws</button>
             </li>
             <li class="nav-item d-none d-md-block d-sm-none">
                <button href="#" class="btn nav-link link-light px-2 topnav-link">Employment</button>
@@ -41,7 +42,8 @@
                <button href="#" class="btn nav-link link-light px-2 topnav-link">About</button>
             </li>
             <li class="d-md-none d-sm-block">
-               <a href="/" class="d-flex align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
+               <a href="/goddard-gov/"
+                  class="d-flex align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
                   <img class="bi me-2" width="93" height="40" src="/goddard-gov/img/flag.png">
                   <span class="fs-4 text-light">Goddard</span>
                </a>
@@ -84,7 +86,7 @@
       <header class="bg-black d-none d-md-flex d-sm-none pt-4 pb-2 pb-lg-3" id="header">
          <div class="container d-flex flex-wrap justify-content-between align-items-center">
             <div>
-               <a href="/"
+               <a href="/goddard-gov/"
                   class="d-none d-md-flex d-sm-none align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
                   <img class="bi me-2" width="85" height="40" src="/goddard-gov/img/flag.png">
                   <span class="fs-4 text-light">Robo-Communist Republic of Goddard</span>
@@ -108,7 +110,7 @@
          </div>
       </header>
 
-      <main class="container px-sm-0 px-3">
+      <main id="not-signed-in" class="container px-sm-0 px-3">
          <h1 class="text-white py-3">Home</h1>
          <p class="text-white">Welcome to the Official Website for the Robo-Communist Republic of Goddard.<br>All
             information
@@ -124,7 +126,7 @@
                   <h2 class="card-title">Laws</h2>
                   <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa harum eos quidem
                      accusantium! Quae dignissimos facilis nesciunt. Distinctio, iste nisi?</p>
-                  <button class="btn btn-warning">Enter</button>
+                  <button class="btn btn-warning" onclick="navigate('/goddard-gov/laws')">Enter</button>
                </div>
             </div>
             <div class="scroll-card col" id="employment">
