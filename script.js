@@ -49,3 +49,74 @@ function switchTab(tab) {
 
    document.body.dataset.tab = (tab.charAt(3));
 }
+
+
+
+function sort_alphabetical() {
+   var div = document.getElementById('people-container');
+   var childElements = div.children;
+   var childElementsArray = Array.prototype.slice.call(childElements);
+
+   childElementsArray.sort(function (a, b) {
+      var idA = a.id.toLowerCase();
+      var idB = b.id.toLowerCase();
+      if (idA < idB) {
+         return -1;
+      }
+      if (idA > idB) {
+         return 1;
+      }
+      return 0;
+   });
+
+   childElementsArray.forEach(function (element) {
+      div.appendChild(element);
+   });
+}
+
+
+function sort_back_alphabetical() {
+   var div = document.getElementById('people-container');
+   var childElements = div.children;
+   var childElementsArray = Array.prototype.slice.call(childElements);
+
+   childElementsArray.sort(function (a, b) {
+      var idA = a.id.toLowerCase();
+      var idB = b.id.toLowerCase();
+      if (idA < idB) {
+         return 1;
+      }
+      if (idA > idB) {
+         return -1;
+      }
+      return 0;
+   });
+
+   childElementsArray.forEach(function (element) {
+      div.appendChild(element);
+   });
+}
+
+function sort_importance() {
+   var div = document.getElementById('people-container');
+
+   var childElements = div.children;
+
+   var childElementsArray = Array.prototype.slice.call(childElements);
+
+   childElementsArray.sort(function (a, b) {
+      var importanceA = a.dataset.importance;
+      var importanceB = b.dataset.importance;
+      if (importanceA < importanceB) {
+         return -1;
+      }
+      if (importanceA > importanceB) {
+         return 1;
+      }
+      return 0;
+   });
+
+   childElementsArray.forEach(function (element) {
+      div.appendChild(element);
+   });
+}
