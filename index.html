@@ -20,7 +20,7 @@
 <body data-signedin="false" data-search="false">
    <nav class="py-2 bg-black" id="topnav">
       <div class="container d-flex flex-wrap justify-content-between">
-         <ul class="nav gap-1">
+         <ul class="nav gap-1" id="left-nav">
             <li class="nav-item d-none d-md-block d-sm-none">
                <button onclick="navigate('/goddard-gov')" class="btn nav-link link-light px-2 topnav-link">Home</button>
             </li>
@@ -47,12 +47,17 @@
             <li class="d-md-none d-sm-block">
                <a href="/goddard-gov/"
                   class="d-flex align-items-center mb-lg-0 me-lg-auto text-dark text-decoration-none">
-                  <img class="bi me-2" width="93" height="40" src="/goddard-gov/img/flag.png">
-                  <span class="fs-4 text-light">Goddard</span>
+                  <img class="bi me-2 goddard-flag" width="93" height="40" src="/goddard-gov/img/flag.png">
+                  <span class="fs-4 text-light goddard-flag">Goddard</span>
                </a>
             </li>
+            <li>
+               <form class="searchbar" class="col-12 col-lg-auto d-none d-lg-block d-sm-none px-3" role="search">
+                  <input class="form-control" placeholder="Search..." aria-label="Search">
+               </form>
+            </li>
          </ul>
-         <ul class="nav">
+         <ul class="nav" id="right-nav">
             <nav class="text-end">
                <button type="button" class="btn d-inline-flex d-lg-none d-sm-inline-flex" onclick="toggleSearch()"
                   id="search-toggle">
@@ -80,10 +85,6 @@
          </ul>
       </div>
    </nav>
-
-   <form id="search-bar">
-      <input placeholder="Search...">
-   </form>
 
    <div class="wrapper bg-dark p-0">
       <header class="bg-black d-none d-md-flex d-sm-none pt-4 pb-2 pb-lg-3" id="header">
