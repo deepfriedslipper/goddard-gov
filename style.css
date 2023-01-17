@@ -13,13 +13,8 @@ body {
    overflow-x: hidden;
 }
 
-input {
-   outline: none;
-}
-
 #topnav {
    border-bottom: 2px solid rgb(60, 60, 60);
-   position: absolute;
    width: 100%;
    z-index: 100;
 }
@@ -45,6 +40,32 @@ input {
 
 .topnav-link:hover::after {
    transform: scaleX(100%);
+}
+
+body[data-search="true"] .topnav-link,
+body[data-search="true"] .goddard-flag {
+   display: none;
+}
+
+.searchbar input {
+   display: none;
+   background-color: black;
+   color: white;
+   border: none;
+}
+
+.searchbar input:focus {
+   background-color: black;
+   color: white;
+   outline: rgba(255, 255, 255, 0.305) 1px solid;
+}
+
+body[data-search="true"] .searchbar input {
+   display: inline-block;
+}
+
+#left-nav {
+   width: calc(100% - 50px);
 }
 
 .translate-50 {
@@ -78,16 +99,6 @@ input {
 .wrapper {
    min-height: calc(100% - 55px);
    transition: all 300ms ease-out;
-}
-
-body[data-search="true"] #search-bar {
-   transform: translateY(100%);
-}
-
-body[data-search="true"] .wrapper {
-   min-height: calc(100% - 110px);
-   transform: translateY(55px);
-   filter: brightness(0.7);
 }
 
 body[data-search="true"] #magnifying-glass {
@@ -125,8 +136,18 @@ body[data-search="false"] #x {
    text-align: center;
 }
 
+.quotes-page li {
+   list-style-type: none;
+   font-size: 2rem;
+   text-align: center;
+   margin: 1rem;
+   line-height: 2.25rem;
+}
+
 .quotes li::before,
-.quotes li::after {
+.quotes li::after,
+.quotes-page li::before,
+.quotes-page li::after {
    content: '"';
 }
 
@@ -154,6 +175,10 @@ body[data-search="false"] #x {
 
 #error {
    display: none;
+}
+
+#search-toggle {
+   transform: translateY(1.5px);
 }
 
 #search-toggle:hover {
@@ -299,6 +324,7 @@ body[data-search="false"] #x {
    display: flex;
    justify-content: center;
    align-items: center;
+   height: 36%;
    bottom: 0;
    left: 1em;
    right: 1em;
@@ -557,12 +583,20 @@ body[data-tab="4"] .select-bar {
    .ministers {
       grid-template-columns: 50% 50%;
    }
+
+   .searchbar input {
+      width: 636px;
+   }
 }
 
 /* Small */
 @media only screen and (max-width: 768px) and (min-width: 576px) {
    .ministers {
       grid-template-columns: 100%;
+   }
+
+   #left-nav {
+      width: calc(100% - 94.39px);
    }
 }
 
